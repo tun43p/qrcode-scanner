@@ -11,8 +11,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   get_it: ^7.2.0
   shared_preferences: ^2.0.17
+  slang: ^3.11.1
+  slang_flutter: ^3.11.0
 
 dev_dependencies:
   blackfoot_flutter_lint: ^1.0.7

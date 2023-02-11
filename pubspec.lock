@@ -49,6 +49,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.0"
+  csv:
+    dependency: transitive
+    description:
+      name: csv
+      sha256: "18aef53ab72181a0b5384562d18c8cbd57e941e24cb8e54eb41409d3d8abdc6d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.0.1"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -94,6 +102,11 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
+  flutter_localizations:
+    dependency: "direct main"
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -112,6 +125,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.2.0"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "910f85bce16fb5c6f614e117efa303e85a1731bb0081edf3604a2ae6e9a3cc91"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.17.0"
   js:
     dependency: transitive
     description:
@@ -120,6 +141,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.5"
+  json2yaml:
+    dependency: transitive
+    description:
+      name: json2yaml
+      sha256: "1bd23a492025254aa14a760db94c8d52142c774ab3f2ab935e31742796bf505d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.0"
   lints:
     dependency: transitive
     description:
@@ -269,6 +298,22 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  slang:
+    dependency: "direct main"
+    description:
+      name: slang
+      sha256: "5b0f10645c038b0f65ea581bc367af91a9685f7f548598b5de829473f0e31ff7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.11.1"
+  slang_flutter:
+    dependency: "direct main"
+    description:
+      name: slang_flutter
+      sha256: "0f9d23a6e9db25d439208c2adf6b45d38188193b759f49ef956b56431c76035f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.11.0"
   source_span:
     dependency: transitive
     description:
@@ -325,6 +370,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  watcher:
+    dependency: transitive
+    description:
+      name: watcher
+      sha256: "6a7f46926b01ce81bfc339da6a7f20afbe7733eff9846f6d6a5466aa4c6667c0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   win32:
     dependency: transitive
     description:
@@ -341,6 +394,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
+  yaml:
+    dependency: transitive
+    description:
+      name: yaml
+      sha256: "23812a9b125b48d4007117254bca50abb6c712352927eece9e155207b1db2370"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.1"
 sdks:
   dart: ">=2.19.2 <3.0.0"
   flutter: ">=3.0.0"

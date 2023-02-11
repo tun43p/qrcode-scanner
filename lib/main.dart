@@ -1,9 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:qrcode_scanner/core/services/preferences_services.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:qrcode_scanner/counter/screens/counter_screen.dart';
+import 'package:qrcode_scanner/i18n/i18n.g.dart';
+import 'package:qrcode_scanner/preferences/screens/preferences_screen.dart';
+import 'package:qrcode_scanner/preferences/services/preferences_services.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Block landscape orientation.
+  await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
+  // If you want to hard code a predefined language, you can do:
+  // LocaleSettings.setLocaleRaw('en');
+  LocaleSettings.useDeviceLocale();
+
+  // Register preferences singleton and initialize it.
   await registerPreferencesService();
+
   runApp(const Main());
 }
 
@@ -12,55 +30,24 @@ class Main extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MaterialApp(
-        title: 'Flutter Demo',
+        title: 'QRCode Scanner',
+        locale: AppLocaleUtils.findDeviceLocale().flutterLocale,
+        supportedLocales: AppLocaleUtils.supportedLocales,
+        localizationsDelegates: const <LocalizationsDelegate<Object>>[
+          GlobalCupertinoLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      );
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({required this.title, super.key});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'You have pushed the button this many times:',
-              ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-            ],
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: _incrementCounter,
-          tooltip: 'Increment',
-          child: const Icon(Icons.add),
-        ),
+        home: const CounterScreen(title: 'QRCode Scanner'),
+        initialRoute: CounterScreen.route,
+        routes: <String, WidgetBuilder>{
+          CounterScreen.route: (BuildContext context) =>
+              const CounterScreen(title: 'QRCode Scanner'),
+          PreferencesScreen.route: (BuildContext context) =>
+              const PreferencesScreen(),
+        },
       );
 }
