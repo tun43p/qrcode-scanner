@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:qrcode_scanner/core/services/preferences_services.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await registerPreferencesService();
+  runApp(const Main());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Main extends StatelessWidget {
+  const Main({super.key});
 
   @override
   Widget build(BuildContext context) => MaterialApp(
