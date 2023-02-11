@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.10.0"
+  blackfoot_flutter_lint:
+    dependency: "direct dev"
+    description:
+      name: blackfoot_flutter_lint
+      sha256: b4edb0f61d8386ef5fde1a891d47bbef4f6098795dd6f1043e6c5227a93d0b08
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.7"
   boolean_selector:
     dependency: transitive
     description:
@@ -63,7 +71,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_lints:
-    dependency: "direct dev"
+    dependency: transitive
     description:
       name: flutter_lints
       sha256: aeb0b80a8b3709709c9cc496cdc027c5b3216796bc0af0ce1007eaf24464fd4c
