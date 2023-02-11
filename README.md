@@ -1,16 +1,19 @@
-# qrcode_scanner
+# QRCode Scanner
 
-A new Flutter project.
+A simple QRCode scanner for Android and iOS.
 
-## Getting Started
+## Getting started
 
-This project is a starting point for a Flutter application.
+### Generate new translations
 
-A few resources to get you started if this is your first Flutter project:
+```bash
+flutter pub run slang
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Authors
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **tun43p** - _Initial work_ - [tun43p](https://github.com/tun43p).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
