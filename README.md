@@ -1,6 +1,6 @@
-# qrcode_scanner
+# QRCode Scanner
 
-A new Flutter project.
+A simple QRCode scanner for Android and iOS.
 
 ## Getting Started
 
