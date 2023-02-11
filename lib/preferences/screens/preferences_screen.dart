@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qrcode_scanner/layouts/screen_layout.dart';
 
 class PreferencesScreen extends StatelessWidget {
   const PreferencesScreen({super.key});
@@ -6,5 +7,6 @@ class PreferencesScreen extends StatelessWidget {
   static const String route = '/preferences';
 
   @override
-  Widget build(BuildContext context) => const Placeholder();
+  Widget build(BuildContext context) =>
+      const ScreenLayout(child: Placeholder());
 }

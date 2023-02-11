@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qrcode_scanner/i18n/i18n.g.dart';
+import 'package:qrcode_scanner/layouts/screen_layout.dart';
 
 class CounterScreen extends StatefulWidget {
   const CounterScreen({required this.title, super.key});
@@ -22,11 +23,8 @@ class _CounterScreenState extends State<CounterScreen> {
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Center(
+  Widget build(BuildContext context) => ScreenLayout(
+        child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -35,13 +33,12 @@ class _CounterScreenState extends State<CounterScreen> {
                 '$_counter',
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
+              ElevatedButton(
+                onPressed: _incrementCounter,
+                child: const Icon(Icons.add),
+              ),
             ],
           ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: _incrementCounter,
-          tooltip: t.counter.increment,
-          child: const Icon(Icons.add),
         ),
       );
 }
