@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  flutter_native_splash: ^2.2.17
   get_it: ^7.2.0
   shared_preferences: ^2.0.17
   slang: ^3.11.1
@@ -25,3 +26,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/

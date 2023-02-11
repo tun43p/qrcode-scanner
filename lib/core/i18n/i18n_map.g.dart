@@ -6,9 +6,9 @@ part of 'i18n.g.dart';
 extension on _I18nEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'home.pushed': return ({required Object times}) => 'You have pushed the button this many times: ${times}';
+			case 'home.increment': return 'Increment';
 			case 'core.hello': return 'Hello!';
-			case 'counter.pushed': return ({required Object times}) => 'You have pushed the button this many times: ${times}';
-			case 'counter.increment': return 'Increment';
 			default: return null;
 		}
 	}
@@ -17,9 +17,9 @@ extension on _I18nEn {
 extension on _I18nFr {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'home.pushed': return ({required Object times}) => 'Vous avez appuyé sur le bouton ce nombre de fois: ${times}';
+			case 'home.increment': return 'Augmenter';
 			case 'core.hello': return 'Salut !';
-			case 'counter.pushed': return ({required Object times}) => 'Vous avez appuyé sur le bouton ce nombre de fois: ${times}';
-			case 'counter.increment': return 'Augmenter';
 			default: return null;
 		}
 	}

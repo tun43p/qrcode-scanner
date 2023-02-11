@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:qrcode_scanner/counter/screens/counter_screen.dart';
-import 'package:qrcode_scanner/i18n/i18n.g.dart';
-import 'package:qrcode_scanner/preferences/screens/preferences_screen.dart';
-import 'package:qrcode_scanner/preferences/services/preferences_services.dart';
+import 'package:qrcode_scanner/config/screens/config_screen.dart';
+import 'package:qrcode_scanner/config/services/config_services.dart';
+import 'package:qrcode_scanner/core/i18n/i18n.g.dart';
+import 'package:qrcode_scanner/core/theme/main_theme.dart';
+import 'package:qrcode_scanner/home/screens/home_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +21,7 @@ Future<void> main() async {
   LocaleSettings.useDeviceLocale();
 
   // Register preferences singleton and initialize it.
-  await registerPreferencesService();
+  await registerConfigService();
 
   runApp(const Main());
 }
@@ -38,16 +39,11 @@ class Main extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const CounterScreen(title: 'QRCode Scanner'),
-        initialRoute: CounterScreen.route,
+        theme: mainTheme,
+        initialRoute: HomeScreen.route,
         routes: <String, WidgetBuilder>{
-          CounterScreen.route: (BuildContext context) =>
-              const CounterScreen(title: 'QRCode Scanner'),
-          PreferencesScreen.route: (BuildContext context) =>
-              const PreferencesScreen(),
+          ConfigScreen.route: (BuildContext context) => const ConfigScreen(),
+          HomeScreen.route: (BuildContext context) => const HomeScreen(),
         },
       );
 }

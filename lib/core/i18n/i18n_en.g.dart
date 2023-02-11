@@ -25,8 +25,19 @@ class _I18nEn implements BaseTranslations<AppLocale, _I18nEn> {
 	late final _I18nEn _root = this; // ignore: unused_field
 
 	// Translations
+	late final _I18nHomeEn home = _I18nHomeEn._(_root);
 	late final _I18nCoreEn core = _I18nCoreEn._(_root);
-	late final _I18nCounterEn counter = _I18nCounterEn._(_root);
+}
+
+// Path: home
+class _I18nHomeEn {
+	_I18nHomeEn._(this._root);
+
+	final _I18nEn _root; // ignore: unused_field
+
+	// Translations
+	String pushed({required Object times}) => 'You have pushed the button this many times: ${times}';
+	String get increment => 'Increment';
 }
 
 // Path: core
@@ -37,15 +48,4 @@ class _I18nCoreEn {
 
 	// Translations
 	String get hello => 'Hello!';
-}
-
-// Path: counter
-class _I18nCounterEn {
-	_I18nCounterEn._(this._root);
-
-	final _I18nEn _root; // ignore: unused_field
-
-	// Translations
-	String pushed({required Object times}) => 'You have pushed the button this many times: ${times}';
-	String get increment => 'Increment';
 }

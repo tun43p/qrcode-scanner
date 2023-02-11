@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:qrcode_scanner/i18n/i18n.g.dart';
-import 'package:qrcode_scanner/layouts/screen_layout.dart';
+import 'package:qrcode_scanner/core/i18n/i18n.g.dart';
+import 'package:qrcode_scanner/core/layouts/screen_layout.dart';
 
-class CounterScreen extends StatefulWidget {
-  const CounterScreen({required this.title, super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
-  final String title;
-
-  static const String route = '/counter';
+  static const String route = '/home';
 
   @override
-  State<CounterScreen> createState() => _CounterScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _CounterScreenState extends State<CounterScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -28,7 +26,7 @@ class _CounterScreenState extends State<CounterScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(t.counter.pushed(times: _counter)),
+              Text(t.home.pushed(times: _counter)),
               Text(
                 '$_counter',
                 style: Theme.of(context).textTheme.headlineMedium,

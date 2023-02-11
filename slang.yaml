@@ -2,5 +2,5 @@ namespaces: true
 base_locale: en
 fallback_strategy: base_locale
 output_format: multiple_files
-output_directory: lib/i18n
+output_directory: lib/core/i18n
 output_file_name: i18n.g.dart

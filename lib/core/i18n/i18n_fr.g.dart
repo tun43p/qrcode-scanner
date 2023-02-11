@@ -26,8 +26,19 @@ class _I18nFr extends _I18nEn {
 	@override late final _I18nFr _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _I18nHomeFr home = _I18nHomeFr._(_root);
 	@override late final _I18nCoreFr core = _I18nCoreFr._(_root);
-	@override late final _I18nCounterFr counter = _I18nCounterFr._(_root);
+}
+
+// Path: home
+class _I18nHomeFr extends _I18nHomeEn {
+	_I18nHomeFr._(_I18nFr root) : this._root = root, super._(root);
+
+	@override final _I18nFr _root; // ignore: unused_field
+
+	// Translations
+	@override String pushed({required Object times}) => 'Vous avez appuyé sur le bouton ce nombre de fois: ${times}';
+	@override String get increment => 'Augmenter';
 }
 
 // Path: core
@@ -38,15 +49,4 @@ class _I18nCoreFr extends _I18nCoreEn {
 
 	// Translations
 	@override String get hello => 'Salut !';
-}
-
-// Path: counter
-class _I18nCounterFr extends _I18nCounterEn {
-	_I18nCounterFr._(_I18nFr root) : this._root = root, super._(root);
-
-	@override final _I18nFr _root; // ignore: unused_field
-
-	// Translations
-	@override String pushed({required Object times}) => 'Vous avez appuyé sur le bouton ce nombre de fois: ${times}';
-	@override String get increment => 'Augmenter';
 }

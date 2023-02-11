@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:qrcode_scanner/counter/screens/counter_screen.dart';
-import 'package:qrcode_scanner/preferences/screens/preferences_screen.dart';
+import 'package:qrcode_scanner/config/screens/config_screen.dart';
+import 'package:qrcode_scanner/home/screens/home_screen.dart';
 
 class ScreenLayout extends StatelessWidget {
   const ScreenLayout({required this.child, super.key});
@@ -14,17 +14,17 @@ class ScreenLayout extends StatelessWidget {
           actions: <Widget>[
             GestureDetector(
               child: Icon(
-                ModalRoute.of(context)?.settings.name == CounterScreen.route
-                    ? Icons.settings
-                    : Icons.home,
+                ModalRoute.of(context)?.settings.name == ConfigScreen.route
+                    ? Icons.home
+                    : Icons.settings,
               ),
               onTap: () async {
                 switch (ModalRoute.of(context)?.settings.name) {
-                  case CounterScreen.route:
-                    await Navigator.pushNamed(context, PreferencesScreen.route);
+                  case ConfigScreen.route:
+                    await Navigator.pushNamed(context, HomeScreen.route);
                     break;
-                  case PreferencesScreen.route:
-                    await Navigator.pushNamed(context, CounterScreen.route);
+                  case HomeScreen.route:
+                    await Navigator.pushNamed(context, ConfigScreen.route);
                     break;
                 }
               },
