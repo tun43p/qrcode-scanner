@@ -1,6 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:qrcode_scanner/core/i18n/i18n.g.dart';
+import 'package:get_it/get_it.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:qrcode_scanner/config/services/config_services.dart';
 import 'package:qrcode_scanner/core/layouts/screen_layout.dart';
+import 'package:qrcode_scanner/home/widgets/scanner_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,31 +17,42 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _counter = 0;
+  final ConfigService _configService = GetIt.I.get<ConfigService>();
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  List<String> _urls = <String>[];
+
+  @override
+  void initState() {
+    super.initState();
+    unawaited(_initState());
+  }
+
+  Future<void> _initState() async {
+    _urls = GetIt.I.get<ConfigService>().urls;
   }
 
   @override
   Widget build(BuildContext context) => ScreenLayout(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(t.home.pushed(times: _counter)),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-              ElevatedButton(
-                onPressed: _incrementCounter,
-                child: const Icon(Icons.add),
-              ),
-            ],
-          ),
+        child: Column(
+          children: <Widget>[
+            ScannerWidget(
+              onDetect: (BarcodeCapture capture) async {
+                final List<Barcode> barcodes = capture.barcodes;
+                for (final Barcode barcode in barcodes) {
+                  if (!_configService.urls.contains(barcode.rawValue)) {
+                    await _configService.addSingleUrl(barcode.rawValue!);
+
+                    setState(() {
+                      _urls = <String>[..._urls, barcode.rawValue!];
+                    });
+                  }
+                }
+              },
+            ),
+            ..._urls.map(
+              Text.new,
+            )
+          ],
         ),
       );
 }
